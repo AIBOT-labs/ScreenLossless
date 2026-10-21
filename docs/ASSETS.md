@@ -1,6 +1,6 @@
 # ScreenLossless 图标来源
 
-按项目所有者要求，用内置 imagegen 工具重新设计。没有使用原图或其他品牌图标作为生成参考。当前 assets 下均为新图标。
+按项目所有者要求，用内置 imagegen 工具重新设计。没有使用原图或其他品牌图标作为生成参考。当前 assets 中的图标使用上述新设计；界面截图来源见下文。
 
 - assets/ScreenLossless-source.png：生成工具最终原图，保留原始透明度。
 - assets/ScreenLossless.png：512×512 RGBA PNG，供项目及说明使用。
@@ -18,3 +18,13 @@ Use case: logo-brand. Create one brand-new polished Windows desktop app icon for
 ## 最终边缘修整提示词
 
 Polish this app icon for production. Preserve the exact inner white capture frame with coral recording dot, indigo tile color, and overall geometry. Repair ONLY the outer boundary and transparency: remove every stray blue fragment, cloudy fringe, grain, wisps and speckle outside the rounded square. The rounded-square silhouette must be perfectly clean and smooth, like a precisely clipped vector path, with a narrow antialiased edge and fully transparent empty space everywhere outside it. Give equal clean transparent margin of about 7% on all four sides. No outer glow, no shadow, no noise, no checkerboard painted into image, no other changes. Single square icon, no text.
+
+
+## 界面截图 / Interface screenshots
+
+以下两张界面截图由项目所有者指定提供，用于中英文 README 展示。仅整理文件名和目录，图片内容及像素保持原样。
+
+The project owner supplied and selected these screenshots for both READMEs. Only filenames and locations were organized; image contents and pixels are unchanged.
+
+- [白天模式 · 中文 / Light mode · Chinese](../assets/screenshots/screenlossless-light.png)；原文件 / Original: `Snipaste_2026-10-21_11-50-26.png`；SHA256: `80acdb4e18ae90df5abfd9eaa2f6167fba256d27ef05d60dfb5b11675c717eb3`。
+- [黑夜模式 · 英文 / Dark mode · English](../assets/screenshots/screenlossless-dark.png)；原文件 / Original: `Snipaste_2026-10-21_11-51-55.png`；SHA256: `4e37c675227e279f1e71cb803a29caa1959ef5f95ee33521d8cd136843f122de`。

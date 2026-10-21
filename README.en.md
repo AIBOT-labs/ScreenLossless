@@ -2,18 +2,35 @@
 
 [中文](README.md) | **English**
 
-A screen recorder for Windows 10/11 x64, with full-screen, region and window capture. Choose RGB lossless or lightweight compressed encoding, with optional system audio and microphone capture. Built with C# / WinForms, FFmpeg and NAudio.
+A screen recorder for Windows 10/11 x64, with full-screen, region and window capture. Choose RGB lossless or lightweight compressed encoding, with optional system audio and microphone capture.
+
+**[Download the Windows single EXE (recommended, 79.6 MiB)](https://github.com/AIBOT-labs/ScreenLossless/releases/download/v1.0.0/ScreenLossless_v1.0.0_Win64_Standalone.exe)**
+
+[All editions and checksums](https://github.com/AIBOT-labs/ScreenLossless/releases/tag/v1.0.0) · [Corresponding FFmpeg source](https://github.com/AIBOT-labs/ScreenLossless/releases/download/v1.0.0/ScreenLossless_FFmpeg_9.0.2_Source.zip)
+
+## Screenshots
+
+Dark mode · English interface
+
+![ScreenLossless main window in dark mode with the English interface](assets/screenshots/screenlossless-dark.png)
+
+<details>
+<summary>View light mode and the Chinese interface</summary>
+
+![ScreenLossless main window in light mode with the Chinese interface](assets/screenshots/screenlossless-light.png)
+
+</details>
 
 ## Download
 
 [Open the v1.0.0 release](https://github.com/AIBOT-labs/ScreenLossless/releases/tag/v1.0.0)
 
-| Edition | Download and checksum | Requirements |
-| --- | --- | --- |
-| Standalone · about 79.6 MiB | [Download EXE](https://github.com/AIBOT-labs/ScreenLossless/releases/download/v1.0.0/ScreenLossless_v1.0.0_Win64_Standalone.exe) · [SHA256](https://github.com/AIBOT-labs/ScreenLossless/releases/download/v1.0.0/ScreenLossless_v1.0.0_Win64_Standalone.exe.sha256) | Windows 10/11 x64; runtime and recording tools included; open directly |
-| Portable · about 74.0 MiB | [Download ZIP](https://github.com/AIBOT-labs/ScreenLossless/releases/download/v1.0.0/ScreenLossless_v1.0.0_Win64_Portable.zip) · [SHA256](https://github.com/AIBOT-labs/ScreenLossless/releases/download/v1.0.0/ScreenLossless_v1.0.0_Win64_Portable.zip.sha256) | Windows 10/11 x64; .NET runtime included |
-| Compact · about 11.1 MiB | [Download ZIP](https://github.com/AIBOT-labs/ScreenLossless/releases/download/v1.0.0/ScreenLossless_v1.0.0_Win64_Compact.zip) · [SHA256](https://github.com/AIBOT-labs/ScreenLossless/releases/download/v1.0.0/ScreenLossless_v1.0.0_Win64_Compact.zip.sha256) | Windows 10/11 x64; .NET 8 Desktop Runtime x64 required |
-| Complete corresponding FFmpeg source · about 41.6 MiB | [Download source ZIP](https://github.com/AIBOT-labs/ScreenLossless/releases/download/v1.0.0/ScreenLossless_FFmpeg_9.0.2_Source.zip) · [SHA256](https://github.com/AIBOT-labs/ScreenLossless/releases/download/v1.0.0/ScreenLossless_FFmpeg_9.0.2_Source.zip.sha256) | Source and build materials matching all three editions |
+| Edition | Size | How to run | Download and checksum |
+| --- | --- | --- | --- |
+| **Standalone · Recommended** | 79.6 MiB | Open the single EXE; no separate .NET installation | [EXE](https://github.com/AIBOT-labs/ScreenLossless/releases/download/v1.0.0/ScreenLossless_v1.0.0_Win64_Standalone.exe) · [SHA256](https://github.com/AIBOT-labs/ScreenLossless/releases/download/v1.0.0/ScreenLossless_v1.0.0_Win64_Standalone.exe.sha256) |
+| Portable | 74.0 MiB | Extract completely; .NET included | [ZIP](https://github.com/AIBOT-labs/ScreenLossless/releases/download/v1.0.0/ScreenLossless_v1.0.0_Win64_Portable.zip) · [SHA256](https://github.com/AIBOT-labs/ScreenLossless/releases/download/v1.0.0/ScreenLossless_v1.0.0_Win64_Portable.zip.sha256) |
+| Compact | 11.1 MiB | Requires .NET 8 Desktop Runtime x64 | [ZIP](https://github.com/AIBOT-labs/ScreenLossless/releases/download/v1.0.0/ScreenLossless_v1.0.0_Win64_Compact.zip) · [SHA256](https://github.com/AIBOT-labs/ScreenLossless/releases/download/v1.0.0/ScreenLossless_v1.0.0_Win64_Compact.zip.sha256) |
+| Corresponding FFmpeg source | 41.6 MiB | Source and build materials matching all three editions | [Source ZIP](https://github.com/AIBOT-labs/ScreenLossless/releases/download/v1.0.0/ScreenLossless_FFmpeg_9.0.2_Source.zip) · [SHA256](https://github.com/AIBOT-labs/ScreenLossless/releases/download/v1.0.0/ScreenLossless_FFmpeg_9.0.2_Source.zip.sha256) |
 
 Choose **Standalone** for a single download: open the EXE directly, with no separate .NET installation. On first launch it prepares its embedded recording components in the current user's cache and reuses them later. No adjacent files are required. See the [standalone guide](docs/Standalone-README.md).
 
@@ -89,9 +106,12 @@ The detailed guides below are currently in Chinese. This README contains the Eng
 - [Corresponding FFmpeg source and distribution](docs/FFmpeg-SOURCE.md)
 - [GitHub publishing steps and upload files](docs/GITHUB-PUBLISH.md)
 
+<details>
+<summary>Development and directory layout</summary>
+
 ## Development
 
-Requires the **.NET 8 SDK**. The project file is `src/ScreenLossless.csproj`. The GitHub source repository excludes local `releases/` and `.tools/` directories. Build scripts reuse an existing local SDK and dependency cache when available.
+Built with C# / WinForms, FFmpeg and NAudio. Development requires the **.NET 8 SDK**. The project file is `src/ScreenLossless.csproj`. The GitHub source repository excludes local `releases/` and `.tools/` directories. Build scripts reuse an existing local SDK and dependency cache when available.
 
 | Task | Command |
 | --- | --- |
@@ -118,11 +138,13 @@ Building FFmpeg yourself requires Linux Docker and Python. These development too
 | `docs/` | User guides, validation procedures, open-source and distribution documentation |
 | `scripts/` | Build, source-launch and FFmpeg acquisition/build scripts |
 | `tests/` | Regression scripts, test project and test source under `Cases/` |
-| `assets/` | Application icons and source images |
+| `assets/` | Application icons, icon source images and interface screenshots |
 | `licenses/` | Third-party licenses, including .NET and NAudio |
 | `third_party/` | Pinned FFmpeg source materials and build instructions |
 | `.tools/` | Local SDK, dependencies and build cache, excluded from the source repository |
 | `.github/` | GitHub Actions build configuration |
+
+</details>
 
 ## License and distribution
 

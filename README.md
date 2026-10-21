@@ -2,18 +2,35 @@
 
 **中文** | [English](README.en.md)
 
-适用于 Windows 10/11 x64 的屏幕录制工具。支持全屏、区域、窗口录制，提供 RGB 无损与轻量压缩编码，以及系统声音和麦克风采集。使用 C# / WinForms、FFmpeg 和 NAudio 构建。
+适用于 Windows 10/11 x64 的屏幕录制工具。支持全屏、区域、窗口录制，提供 RGB 无损与轻量压缩编码，以及系统声音和麦克风采集。
+
+**[下载 Windows 单 EXE 版（推荐，79.6 MiB）](https://github.com/AIBOT-labs/ScreenLossless/releases/download/v1.0.0/ScreenLossless_v1.0.0_Win64_Standalone.exe)**
+
+[全部版本与校验文件](https://github.com/AIBOT-labs/ScreenLossless/releases/tag/v1.0.0) · [FFmpeg 对应源码](https://github.com/AIBOT-labs/ScreenLossless/releases/download/v1.0.0/ScreenLossless_FFmpeg_9.0.2_Source.zip)
+
+## 界面预览
+
+白天模式 · 中文界面
+
+![ScreenLossless 白天模式中文主界面](assets/screenshots/screenlossless-light.png)
+
+<details>
+<summary>查看黑夜模式与英文界面</summary>
+
+![ScreenLossless 黑夜模式英文主界面](assets/screenshots/screenlossless-dark.png)
+
+</details>
 
 ## 下载
 
 [前往 v1.0.0 发行页面](https://github.com/AIBOT-labs/ScreenLossless/releases/tag/v1.0.0)
 
-| 版本 | 下载与校验 | 运行要求 |
-| --- | --- | --- |
-| Standalone 单 EXE 版 · 约 79.6 MiB | [下载 EXE](https://github.com/AIBOT-labs/ScreenLossless/releases/download/v1.0.0/ScreenLossless_v1.0.0_Win64_Standalone.exe) · [SHA256](https://github.com/AIBOT-labs/ScreenLossless/releases/download/v1.0.0/ScreenLossless_v1.0.0_Win64_Standalone.exe.sha256) | Windows 10/11 x64，内置运行环境及录制组件，直接打开 |
-| Portable 便携版 · 约 74.0 MiB | [下载 ZIP](https://github.com/AIBOT-labs/ScreenLossless/releases/download/v1.0.0/ScreenLossless_v1.0.0_Win64_Portable.zip) · [SHA256](https://github.com/AIBOT-labs/ScreenLossless/releases/download/v1.0.0/ScreenLossless_v1.0.0_Win64_Portable.zip.sha256) | Windows 10/11 x64，内置 .NET 运行环境 |
-| Compact 精简版 · 约 11.1 MiB | [下载 ZIP](https://github.com/AIBOT-labs/ScreenLossless/releases/download/v1.0.0/ScreenLossless_v1.0.0_Win64_Compact.zip) · [SHA256](https://github.com/AIBOT-labs/ScreenLossless/releases/download/v1.0.0/ScreenLossless_v1.0.0_Win64_Compact.zip.sha256) | Windows 10/11 x64，需 .NET 8 Desktop Runtime x64 |
-| FFmpeg 完整对应源码 · 约 41.6 MiB | [下载源码 ZIP](https://github.com/AIBOT-labs/ScreenLossless/releases/download/v1.0.0/ScreenLossless_FFmpeg_9.0.2_Source.zip) · [SHA256](https://github.com/AIBOT-labs/ScreenLossless/releases/download/v1.0.0/ScreenLossless_FFmpeg_9.0.2_Source.zip.sha256) | 与上述三个版本配套的源码和构建材料 |
+| 版本 | 大小 | 运行方式 | 下载与校验 |
+| --- | --- | --- | --- |
+| **Standalone · 推荐** | 79.6 MiB | 单 EXE 直接打开，无需另装 .NET | [EXE](https://github.com/AIBOT-labs/ScreenLossless/releases/download/v1.0.0/ScreenLossless_v1.0.0_Win64_Standalone.exe) · [SHA256](https://github.com/AIBOT-labs/ScreenLossless/releases/download/v1.0.0/ScreenLossless_v1.0.0_Win64_Standalone.exe.sha256) |
+| Portable · 便携版 | 74.0 MiB | 完整解压后运行，内置 .NET | [ZIP](https://github.com/AIBOT-labs/ScreenLossless/releases/download/v1.0.0/ScreenLossless_v1.0.0_Win64_Portable.zip) · [SHA256](https://github.com/AIBOT-labs/ScreenLossless/releases/download/v1.0.0/ScreenLossless_v1.0.0_Win64_Portable.zip.sha256) |
+| Compact · 精简版 | 11.1 MiB | 需 .NET 8 Desktop Runtime x64 | [ZIP](https://github.com/AIBOT-labs/ScreenLossless/releases/download/v1.0.0/ScreenLossless_v1.0.0_Win64_Compact.zip) · [SHA256](https://github.com/AIBOT-labs/ScreenLossless/releases/download/v1.0.0/ScreenLossless_v1.0.0_Win64_Compact.zip.sha256) |
+| FFmpeg 对应源码 | 41.6 MiB | 与三个运行版本匹配的源码和构建材料 | [源码 ZIP](https://github.com/AIBOT-labs/ScreenLossless/releases/download/v1.0.0/ScreenLossless_FFmpeg_9.0.2_Source.zip) · [SHA256](https://github.com/AIBOT-labs/ScreenLossless/releases/download/v1.0.0/ScreenLossless_FFmpeg_9.0.2_Source.zip.sha256) |
 
 希望只下载一个文件，选择 **Standalone 单 EXE 版**，双击即可运行，不需要另外安装 .NET。首次运行会自动将内置录制组件准备到当前用户缓存，后续复用；程序旁不需要其他文件。详见[单 EXE 版说明](docs/Standalone-README.md)。
 
@@ -87,9 +104,12 @@ GitHub 的源码仓库和自动生成的 **Source code ZIP** 不包含编译好�
 - [FFmpeg 对应源码与分发](docs/FFmpeg-SOURCE.md)
 - [GitHub 发布步骤与上传文件](docs/GITHUB-PUBLISH.md)
 
+<details>
+<summary>开发与目录说明</summary>
+
 ## 开发
 
-需要 **.NET 8 SDK**。项目文件位于 `src/ScreenLossless.csproj`。GitHub 源码仓库不包含本机的 `releases/` 与 `.tools/`；构建脚本会复用已有的本机 SDK 和依赖缓存。
+应用使用 C# / WinForms、FFmpeg 和 NAudio 构建。开发需要 **.NET 8 SDK**。项目文件位于 `src/ScreenLossless.csproj`。GitHub 源码仓库不包含本机的 `releases/` 与 `.tools/`；构建脚本会复用已有的本机 SDK 和依赖缓存。
 
 | 操作 | 命令 |
 | --- | --- |
@@ -116,11 +136,13 @@ GitHub 的源码仓库和自动生成的 **Source code ZIP** 不包含编译好�
 | `docs/` | 使用说明、验证方法、开源和分发说明 |
 | `scripts/` | 编译、源码启动与 FFmpeg 获取和构建脚本 |
 | `tests/` | 回归脚本、测试项目与 `Cases/` 测试源码 |
-| `assets/` | 应用图标及其源图像 |
+| `assets/` | 应用图标、图标源图像和界面截图 |
 | `licenses/` | .NET、NAudio 等第三方许可证 |
 | `third_party/` | FFmpeg 固定版本源码材料和构建方法 |
 | `.tools/` | 本机 SDK、依赖与构建缓存，不进入源码仓库 |
 | `.github/` | GitHub Actions 构建配置 |
+
+</details>
 
 ## 许可证与分发
 
