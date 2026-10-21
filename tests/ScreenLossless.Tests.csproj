@@ -1,0 +1,19 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <ApplicationManifest>..\src\app.manifest</ApplicationManifest>
+    <UseWindowsForms>true</UseWindowsForms>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <EnableDefaultCompileItems>false</EnableDefaultCompileItems>
+  </PropertyGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="../src/Localization/en.json" LogicalName="ScreenLossless.Localization.en.json" />
+    <EmbeddedResource Include="..\assets\ScreenLossless.ico" LogicalName="ScreenLossless.AppIcon" />
+    <Compile Include="..\src\**\*.cs" Exclude="..\src\Program.cs;..\src\obj\**\*.cs;..\src\bin\**\*.cs" />
+    <Compile Include="Cases\**\*.cs" />
+    <PackageReference Include="NAudio.Core" Version="2.2.1" />
+    <PackageReference Include="NAudio.Wasapi" Version="2.2.1" />
+  </ItemGroup>
+</Project>
