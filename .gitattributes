@@ -1,0 +1,9 @@
+*.bat text eol=crlf
+*.ps1 text eol=crlf
+*.sh text eol=lf
+Dockerfile text eol=lf
+*.cmake text eol=lf
+*.tar.gz binary
+*.tar.xz binary
+*.ico binary
+*.png binary
