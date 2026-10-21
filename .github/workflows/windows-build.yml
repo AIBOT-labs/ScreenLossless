@@ -27,7 +27,7 @@ jobs:
         run: |
           docker build -t screenlossless-ffmpeg-toolchain:20261012 third_party/ffmpeg/screenlossless-9.0.2
           mkdir -p .tools/ffmpeg-screenlossless
-          docker run --rm --cpus=6 --mount "type=bind,source=$PWD/third_party/ffmpeg/screenlossless-9.0.2,target=/sources,readonly" --mount "type=bind,source=$PWD/.tools/ffmpeg-screenlossless,target=/output" screenlossless-ffmpeg-toolchain:20261012 bash /sources/build.sh
+          docker run --rm --mount "type=bind,source=$PWD/third_party/ffmpeg/screenlossless-9.0.2,target=/sources,readonly" --mount "type=bind,source=$PWD/.tools/ffmpeg-screenlossless,target=/output" screenlossless-ffmpeg-toolchain:20261012 bash /sources/build.sh
       - uses: actions/upload-artifact@v4
         with:
           name: ScreenLossless-FFmpeg-With-Source
