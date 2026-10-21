@@ -1,0 +1,10 @@
+<Project>
+  <PropertyGroup>
+    <!-- Isolate the optional embedded payload so incremental builds never carry
+         Standalone resources into the smaller Portable / Compact editions. -->
+    <StandaloneOutputSuffix Condition="'$(StandaloneToolsArchive)' != ''">.Standalone</StandaloneOutputSuffix>
+    <!-- Keep generated files out of application and test source folders. -->
+    <BaseOutputPath>$(MSBuildThisFileDirectory).tools/build/$(MSBuildProjectName)$(StandaloneOutputSuffix)/bin/</BaseOutputPath>
+    <BaseIntermediateOutputPath>$(MSBuildThisFileDirectory).tools/build/$(MSBuildProjectName)$(StandaloneOutputSuffix)/obj/</BaseIntermediateOutputPath>
+  </PropertyGroup>
+</Project>

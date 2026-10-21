@@ -1,0 +1,17 @@
+# Third-party notices
+
+ScreenLossless application source is distributed under the MIT license in LICENSE. Third-party archives and FFmpeg binaries retain their own licenses.
+
+- FFmpeg 9.0.2-ScreenLossless: GPL-3.0-or-later, copyright FFmpeg developers. Built from release 9.0.2, commit 946fcce07b6dcd0331c8cc609192aeff5e1924f8, with GPL components and without --enable-nonfree. The complete corresponding non-system source archives, build scripts, configuration, modification notes and binary hashes for this build are provided in ScreenLossless_FFmpeg_9.0.2_Source.zip alongside the Standalone EXE and both binary ZIPs on the same download page; see FFmpeg-SOURCE.md. License notices are in ffmpeg-licenses/. Upstream: https://ffmpeg.org/ . Licensing: https://ffmpeg.org/legal.html . This source bundle applies only to the exact binaries identified in FFmpeg-BUILD-RECORD.json.
+- x264 0480cb05fa188d37ae87e8f4fd8f1aea3711f7ee: GPL-2.0-or-later. Original source and COPYING are retained in the x264 source archive and x264-COPYING.txt.
+- zlib 1.3.2: zlib license. Source and LICENSE are retained.
+- NVIDIA nv-codec-headers eddcea9e27f6b772057c9b3f87de2cc1737faffc: individual header MIT notices, retained in the source headers and nv-codec-headers-NOTICES.txt. NVIDIA driver DLLs are not redistributed.
+- AMD AMF public headers 6277e353fd625121a8f627b1d0540323ef372a49: MIT, original LICENSE and all used public headers retained. Unused SDK binaries, samples and third-party distributions are excluded. AMD driver runtime DLLs are not redistributed.
+- Intel libvpl 674d015bcb294bc39fa276e99a652ea045423e82: MIT; original source/license and the one-line MinGW guard modification are provided.
+- Build recipe references: BtbN/FFmpeg-Builds 63ac3265b0789ea16c7b1f8351cd2ad195a28722, MIT, notice retained in BtbN-MIT.txt.
+- MinGW-w64 Windows SDK headers 57b595039040eaa15bece85b7cc71d952281b269: full source and COPYRIGHT/COPYING retained; only windows.*.h and rpcndr.h are overlaid, keeping the compiler-matched CRT headers.
+- MinGW-w64 / GCC runtime and toolchain: copyright and applicable license / runtime exception notices from the actual build packages are retained in ffmpeg-licenses/. Actual tool versions are in toolchain-packages.txt inside the corresponding source ZIP. Normal unmodified build tools and qualifying System Libraries are excluded from the corresponding-source requirement under GPL section 1.
+- NAudio.Core / NAudio.Wasapi 2.2.1: MIT, copyright Mark Heath. Source and license: https://github.com/naudio/NAudio/tree/v2.2.1 . MIT text is in licenses/NAudio-MIT.txt.
+- Microsoft .NET 8 Windows runtime: Microsoft and .NET contributors, MIT and additional third-party notices. Source: https://github.com/dotnet/runtime and https://github.com/dotnet/winforms . Runtime license/notices are in licenses/.
+
+Keep these notices, licenses/ and ffmpeg-licenses/ when redistributing this software. Provide the matching corresponding source ZIP from the same download page with an explicit adjacent link (GPLv3 section 6(d)); for offline distribution, deliver that source ZIP with the software. FFmpeg-BUILD-RECORD.json identifies the exact binaries. Standalone embeds the same notices, licenses and build record and extracts them into its component cache; see [Standalone guide](Standalone-README.md). An alternate user-supplied FFmpeg has its own source and licensing requirements.
