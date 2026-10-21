@@ -1,0 +1,30 @@
+bin/
+obj/
+publish/
+.tools/
+tests/artifacts/
+*.zip
+ffmpeg.exe
+ffprobe.exe
+# Versioned local releases and verification output
+publish-*/
+tests/*.log
+ffmpeg-licenses/
+ffmpeg-source/
+# Current release binaries and distributable packages
+releases/
+# IDE state and local administrative records
+.vs/
+*.user
+*.suo
+tests/cleanup-*.json
+# Local Python/editor artifacts and credentials
+__pycache__/
+*.py[cod]
+.DS_Store
+Thumbs.db
+Desktop.ini
+.env
+.env.*
+*.pfx
+*.p12
