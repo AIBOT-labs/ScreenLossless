@@ -1,0 +1,65 @@
+name: Build ScreenLossless Windows x64
+on:
+  workflow_dispatch:
+  pull_request:
+    branches: [main]
+  push:
+    branches: [main]
+permissions:
+  contents: read
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  ffmpeg:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Verify pinned source archives
+        run: |
+          python scripts/prepare-github.py --verify-only
+          python scripts/prepare-ffmpeg-sources.py --verify-only
+      - name: Compile Windows FFmpeg and export corresponding sources
+        run: |
+          docker build -t screenlossless-ffmpeg-toolchain:20261012 third_party/ffmpeg/screenlossless-9.0.2
+          mkdir -p .tools/ffmpeg-screenlossless
+          docker run --rm --cpus=6 --mount "type=bind,source=$PWD/third_party/ffmpeg/screenlossless-9.0.2,target=/sources,readonly" --mount "type=bind,source=$PWD/.tools/ffmpeg-screenlossless,target=/output" screenlossless-ffmpeg-toolchain:20261012 bash /sources/build.sh
+      - uses: actions/upload-artifact@v4
+        with:
+          name: ScreenLossless-FFmpeg-With-Source
+          path: .tools/ffmpeg-screenlossless/**
+          include-hidden-files: true
+          if-no-files-found: error
+  windows:
+    needs: ffmpeg
+    runs-on: windows-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '8.0.x'
+      - uses: actions/download-artifact@v4
+        with:
+          name: ScreenLossless-FFmpeg-With-Source
+          path: .tools/ffmpeg-screenlossless
+      - name: Install FFmpeg and verify recording pipeline
+        shell: pwsh
+        run: |
+          ./scripts/get-ffmpeg.ps1
+          ./tests/Test-FFmpegSourceBundle.ps1
+          ./tests/Run-Regression.ps1 -MediaOnly
+      - name: Build Standalone, Portable and Compact with matching FFmpeg sources
+        shell: pwsh
+        run: |
+          ./scripts/build.ps1 -SkipTests
+          ./tests/Run-Regression.ps1 -Bundle
+      - uses: actions/upload-artifact@v4
+        with:
+          name: ScreenLossless-Win64-Releases
+          path: releases/**
+          if-no-files-found: error
